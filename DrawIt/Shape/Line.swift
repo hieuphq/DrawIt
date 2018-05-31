@@ -44,7 +44,11 @@ class Line: Drawable {
         color = _color
     }
     
-    func Draw() {
-        print("Draw a line")
+    func Draw(_ context: CGContext) {
+        context.setStrokeColor(color.cgColor)
+        context.move(to: CGPoint(x: startX, y: startY))
+        context.addLine(to: CGPoint(x: endX, y: endY))
+        context.strokePath()
     }
+    
 }

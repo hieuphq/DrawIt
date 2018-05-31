@@ -6,8 +6,8 @@
 //  Copyright © 2018 Hieu Phan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol Drawable {
-    func Draw()
+    func Draw(_ context: CGContext)
 }

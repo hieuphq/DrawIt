@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A82C7E120BFFB0E00052CE5 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C7E020BFFB0E00052CE5 /* Rectangle.swift */; };
 		8AC517C620BFD34D00CC5D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC517C520BFD34D00CC5D83 /* AppDelegate.swift */; };
 		8AC517C820BFD34D00CC5D83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC517C720BFD34D00CC5D83 /* ViewController.swift */; };
 		8AC517CB20BFD34E00CC5D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC517C920BFD34E00CC5D83 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		0827D776FF35B7D125377338 /* Pods-DrawIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrawIt/Pods-DrawIt.debug.xcconfig"; sourceTree = "<group>"; };
 		8767604E8A199655A641B87E /* Pods_DrawIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrawIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A82C7E020BFFB0E00052CE5 /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		8AC517C220BFD34D00CC5D83 /* DrawIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC517C520BFD34D00CC5D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AC517C720BFD34D00CC5D83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				8AC517D820BFD58100CC5D83 /* Shape.swift */,
 				8AC517DA20BFD5FF00CC5D83 /* Line.swift */,
+				8A82C7E020BFFB0E00052CE5 /* Rectangle.swift */,
 			);
 			path = Shape;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				8AC517D920BFD58100CC5D83 /* Shape.swift in Sources */,
 				8AC517C620BFD34D00CC5D83 /* AppDelegate.swift in Sources */,
 				8AC517DF20BFD7B900CC5D83 /* Drawable.swift in Sources */,
+				8A82C7E120BFFB0E00052CE5 /* Rectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +385,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				INFOPLIST_FILE = DrawIt/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = foundation.dwarves.DrawIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -397,7 +404,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W777S7V8TN;
 				INFOPLIST_FILE = DrawIt/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = foundation.dwarves.DrawIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

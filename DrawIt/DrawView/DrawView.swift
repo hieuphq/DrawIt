@@ -11,9 +11,12 @@ import UIKit
 
 class DrawView: UIView {
     
+    var shapes: [Shape] = []
     var lines: [Line] = []
+    var rectange: Rectangle = Rectangle()
     var lastPoint: CGPoint!
     var drawColor = UIColor.black
+    var shapeType = ShapeType.rectangle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,16 +28,56 @@ class DrawView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let pos = touch.location(in: self)
-            lastPoint = pos
+            
+            switch shapeType {
+            case .line:
+                lastPoint = pos
+                break
+            case .rectangle:
+                rectange = Rectangle(color: drawColor)
+                rectange.Start = pos
+                rectange.End = pos
+                break
+            }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let newPoint = touch.location(in: self)
-            lines.append(Line(start:lastPoint, end: newPoint, color: drawColor))
-            lastPoint = newPoint
+            
+            switch shapeType {
+            case .line:
+                lastPoint = newPoint
+                lines.append(Line(start:lastPoint, end: newPoint, color: drawColor))
+                break
+            case .rectangle:
+                rectange.End = newPoint
+                break
+            }
             self.setNeedsDisplay()
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let newPoint = touch.location(in: self)
+            
+            switch shapeType {
+            case .line:
+                lines.append(Line(start:lastPoint, end: newPoint, color: drawColor))
+                lastPoint = newPoint
+                shapes.append(Shape(lines: lines, color: self.drawColor))
+                lines = []
+                break
+            case .rectangle:
+                rectange.End = newPoint
+                shapes.append(rectange)
+                rectange = Rectangle(color: drawColor)
+                break
+            }
+            
+            
         }
     }
     
@@ -42,13 +85,21 @@ class DrawView: UIView {
         if let context = UIGraphicsGetCurrentContext() {
             context.setLineWidth(2.0)
             
-            for l in lines {
-                context.setStrokeColor(l.color.cgColor)
-                context.move(to: CGPoint(x: l.startX, y: l.startY))
-                context.addLine(to: CGPoint(x: l.endX, y: l.endY))
-                context.strokePath()
+            for s in shapes {
+                s.Draw(context)
             }
             
+            for l in lines {
+                l.Draw(context)
+            }
+            
+            rectange.Draw(context)
         }
+    }
+    
+    func clear() {
+        self.lines = []
+        self.shapes = []
+        self.setNeedsDisplay()
     }
 }

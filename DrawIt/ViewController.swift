@@ -44,8 +44,7 @@ class ViewController: UIViewController {
     }
     
     @objc func clearBtnTapped(_ sender: UIButton) {
-        self.drawView.lines = []
-        self.drawView.setNeedsDisplay()
+        self.drawView.clear()
     }
 
     override func didReceiveMemoryWarning() {
