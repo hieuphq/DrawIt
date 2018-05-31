@@ -1,0 +1,6 @@
+framework module Pods_DrawIt {
+  umbrella header "Pods-DrawIt-umbrella.h"
+
+  export *
+  module * { export * }
+}
